@@ -8,6 +8,9 @@ function renderPage(value){
   $('#placeholderID').loadTemplate($('#rowID'),value,{append:true});
 }
 
+/**
+ * [loadData [loads the data from the json file]]
+ */
 function loadData(){
   $.getJSON('goal.json',function(json){
     data=json;
@@ -17,9 +20,11 @@ function loadData(){
 
 
 
-
+/**
+ * [addGoal [adds goal to the table]]
+ */
 function addGoal(){
-  var checked=false;
+  //var checked=false;
   if($('#nameData').val()==""){
     alert("Please enter a name for the goal.");
   }else if($('#typeData').val()=="Choose Type"){
@@ -32,7 +37,6 @@ function addGoal(){
       "type":$('#typeData').val(),
       "deadline":$('#datepicker').val()
     };
-    console.log(obj);
     data.push(obj);
     renderPage(obj);
 
@@ -43,6 +47,9 @@ function addGoal(){
  }
 }
 
+/**
+ * [deleteGoal   [To delete selected goal from table]]
+ */
 function deleteGoal(){
   /* We get the table object based on given id */
     var objTable = document.getElementById("goalTable");
@@ -78,6 +85,7 @@ function deleteGoal(){
 	}
 }
 
+// To highlight the row when checkbox is clicked
 $('#goalTable').on('click','.test', function() {
   $(this).parent().parent().toggleClass("highlight")
 });
@@ -91,6 +99,4 @@ $(document).ready(function () {
 
     //load the json data from data.json file
     loadData();
-
-
 });

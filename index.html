@@ -5,8 +5,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="shortcut icon" href="gt.ico" />
-      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+      <link rel="stylesheet" href="css/bootstrap.css">
       <link rel="stylesheet" href="css/style.css">
+
+      <!-- Template for jquery Template Loader -->
+      <script type="text/html" id="rowID">
+        <tr>
+          <td><input type="checkbox" class="test" name="select" value=""></td>
+          <td data-content="name"></td>
+          <td data-content="type"></td>
+          <td data-content="deadline"></td>
+        </tr>
+      </script>
 
 </head>
       <body>
@@ -19,33 +29,32 @@
               </nav>
             </header>
 
-
             <section class="container">
-            <div class="row">
-                <form>
-                      <div class="col-md-3">
-                        <input type="text" id="nameData" class="form-control" name="name" placeholder="Goal Name">
-                      </div>
+              <div class="row">
+                  <form>
+                          <div class="col-md-3">
+                            <input type="text" id="nameData" class="form-control" name="name" placeholder="Goal Name">
+                          </div>
 
-                      <div class="col-md-3">
-                        <select class="form-control" id="typeData" >
-                                <option selected>Choose Type</option>
-                                <option>Type 1</option>
-                                <option>Type 2</option>
-                                <option>Type 3</option>
-                                <option>Type 4</option>
-                        </select>
-                      </div>
+                          <div class="col-md-3">
+                            <select class="form-control" id="typeData" >
+                                    <option selected>Choose Type</option>
+                                    <option>Type 1</option>
+                                    <option>Type 2</option>
+                                    <option>Type 3</option>
+                                    <option>Type 4</option>
+                            </select>
+                          </div>
 
-                      <div class="col-md-3">
-                         <input  type="text" class="form-control" placeholder="DD/MM/YYYY"  id="datepicker">
-                      </div>
-               </form>
-                      <div class="col-md-3">
-                        <button class="btn btn-primary" id="submitBtn" type="button" name="button" onclick="addGoal()">Add Goal</button>
-                        <button class="btn btn-danger" type="button"  name="button"  onclick="deleteGoal()">Delete</button>
-                      </div>
-           </div>
+                          <div class="col-md-3">
+                             <input  type="text" class="form-control" placeholder="DD/MM/YYYY"  id="datepicker">
+                          </div>
+                   </form>
+                  <div class="col-md-3">
+                      <button class="btn btn-primary" id="submitBtn" type="button" name="button" onclick="addGoal()">Add Goal</button>
+                      <button class="btn btn-danger" type="button"  name="button"  onclick="deleteGoal()">Delete</button>
+                  </div>
+             </div>
               <div class="row">
                 <div class="col-md-12">
                   <table class="table" id="goalTable">
@@ -77,19 +86,12 @@
               </div>
             </section>
 
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-            <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js"></script>
+            <script src="js/jquery-3.1.0.min.js"></script>
+            <!-- Datepicker framework for using datepicker -->
+            <script src="js/bootstrap-datepicker.js"></script>
+            <!-- jquery loadTemplate framework for loading templating -->
             <script src="js/jquery.loadTemplate.js" charset="utf-8"></script>
             <script src="js/script.js" charset="utf-8"></script>
-            <script type="text/html" id="rowID">
-              <tr>
-                <td><input type="checkbox" class="test" name="select" value=""></td>
-                <td data-content="name"></td>
-                <td data-content="type"></td>
-                <td data-content="deadline"></td>
-              </tr>
-            </script>
 
       </body>
 </html>

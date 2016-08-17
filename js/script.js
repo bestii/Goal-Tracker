@@ -12,10 +12,16 @@ function renderPage(value){
  * [loadData [loads the data from the json file]]
  */
 function loadData(){
-  $.getJSON('goal.json',function(json){
-    data=json;
-    renderPage(data);
-  });
+  if(localStorage.getItem("goaldata")==null){
+      $.getJSON('goal.json',function(json){
+        data=json;
+        renderPage(data);
+        localStorage.setItem("goaldata",JSON.stringify(data));
+      });
+  }else{
+       data=JSON.parse(localStorage.getItem("goaldata"));
+       renderPage(data);
+  }
 }
 
 
@@ -39,6 +45,8 @@ function addGoal(){
     };
     data.push(obj);
     renderPage(obj);
+    localStorage.setItem("goaldata",JSON.stringify(data));
+    console.log(data);
 
   // Reset the form data
   $('#nameData').val("");
@@ -71,7 +79,12 @@ function deleteGoal(){
 				objTable.deleteRow(i);
 				iRow--;
 				i--;
+        data.splice(i,1);
+        console.log(data);
+        localStorage.setItem("goaldata",JSON.stringify(data));
 				counter = counter + 1;
+
+
 			}
 		}
 

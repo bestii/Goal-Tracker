@@ -21,6 +21,7 @@ function loadData(){
   }else{
        data=JSON.parse(localStorage.getItem("goaldata"));
        renderPage(data);
+       //localStorage.removeItem("goaldata");
   }
 }
 
@@ -109,6 +110,9 @@ $(document).ready(function () {
         format: "dd/mm/yyyy",
         autoclose: true
     });
+
+
+
 
     //load the json data from data.json file
     loadData();
